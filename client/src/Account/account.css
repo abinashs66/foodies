@@ -1,0 +1,120 @@
+.account-container{
+    /* background-color: #e7eae5; */
+    background-color: rgb(189, 228, 243);
+    height:85vh;
+    max-width: 500px;
+    margin: auto;
+}
+.upper{
+    display: flex;
+    padding: 4% 0% 3% 3%;
+    background-color: white;
+}
+
+.circle{
+    width:20%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 50%;
+}
+.circle-right{
+    width:80%;
+    padding-left: 5%;
+    padding-top: 1%;
+    color:#333333;
+}
+.circle-right>h4{
+    font-size: 1.6rem;
+    padding-top: 2%;
+}
+.circle-right>h6{
+    font-size: 1rem;
+    font-weight: 100;
+}
+.circle>p{
+    font-size: 4rem;
+}
+.mid{
+     background-color: white;
+     margin-top: 8%;
+     margin-bottom: 8%;
+     border: 15px;
+     padding-left: 8px;
+     padding-right: 8px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+}
+.mid>fieldset{
+    padding:8px 10px 10px 10px;
+    border-radius: 6px;
+    color:dodgerblue;
+    margin-bottom:5px;
+    border: 2px solid dodgerblue;
+}
+
+.mid div{
+    color:black;
+    font-size: 0.9rem;
+    padding-left: 5px;
+    letter-spacing: 1.2px;
+}
+
+.password>p{
+    color:white;
+    background-color: crimson;
+    width:20%;
+    text-align: center;
+    border-radius: 5px;
+    letter-spacing: 1.1px;
+}
+
+.bottomm{
+    text-align: center;
+    background-color: white;
+    padding:20px;
+}
+.bottomm>button{
+    background-color: crimson;
+    padding: 7px 75px;
+    color: white;
+    border-radius: 5px;
+    letter-spacing: 1.5px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+.bottomm>button:active{
+    transition: 1s;
+    transform: scale(1.2,1.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

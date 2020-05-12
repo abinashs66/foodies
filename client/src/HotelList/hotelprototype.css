@@ -1,0 +1,102 @@
+.hotel-prototype{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin-top: 1%;
+    text-transform: capitalize;
+    background-color:whitesmoke;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    padding:0.5% 0px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.hotel-prototype:active{
+    transform: scale(1.05,1.05);
+    transition: all 0.3s;
+}
+.left{
+    margin-left: 1%;
+    border-radius: 10px;
+    width:22%;
+    height:18vh;
+    overflow: hidden;
+}
+.middle{
+    width:65%;
+    padding-top: 1%;
+    margin-left: 1.5%;
+}
+.middle h3{
+  font-family: "Nunito",sans-serif;
+  font-size: 1.7rem;
+  margin-bottom: 4px;
+}
+.middle p{
+    font-family: "Baloo 2",sans-serif;
+}
+.right{
+    width:10%;
+    overflow: hidden;
+    text-align: center;
+}
+.right div{
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    margin:12% 20% 0% 25%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    width:50%;
+    padding-top:3px;
+    padding-bottom: 3px;;
+}
+
+@media screen and (max-width:800px){
+    .hotel-prototype{
+        margin-top: 2%;
+        margin-left: 1%;
+        margin-right: 1%;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+        padding:0.5% 0px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+ .left{
+     width:25%;
+     height:10vh;
+ }
+ .middle{
+    width:50%;
+    padding-top: 1.2%;
+    margin-left: 2.5%;
+
+  }
+  .middle h3{
+  font-family: "Nunito",sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+  }
+  .middle p{
+    font-family: "Baloo 2",sans-serif;
+    font-size: 0.8rem;
+  }
+  .middle span{
+      display: none;
+  }
+  .right{
+    width:20%;
+    overflow: hidden;
+    text-align: center;
+ }
+ .right div{
+    border-radius: 6px;
+    background-color: green;
+    color: white;
+    margin:5px 0px 0px 25px;
+    font-size: 0.8rem;
+    padding-top:3px;
+    padding-bottom: 4px;;
+}
+
+
+}

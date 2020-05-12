@@ -1,0 +1,187 @@
+.cart-container{
+    max-width: 1080px;
+    margin: auto;
+    margin-bottom: 14%;
+    margin-top: 2%;
+    padding:1% 5% 1% 5%;
+    padding-top:1%;
+    background-color:#fff5ee ;
+    max-height: 70%;
+    position: relative;
+}
+.cart-items{
+    display:flex;
+    overflow: hidden;
+    text-transform: capitalize;
+    border-radius: 5px;
+    padding: 2px 3px;
+    width:100%;
+    margin-bottom: 2px;
+    box-shadow: 1px 1px 2px black;
+    background-color: white;
+}
+.c-one{
+    width:5%;
+}
+.c-one>i{
+    font-size: 0.6rem;
+    padding-left: 10px;
+}
+.c-two{
+    width:40%;
+    margin-left: 2%;
+}
+.c-two>p{
+    font-size: 0.7rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.c-three{
+    width:30%;
+    text-align: center;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    overflow: hidden;
+    padding-left: 5px;
+}
+.c-three button{
+    padding:1px 9px;
+    border-radius: 5px;
+    outline: none;
+    border:none;
+    background-color: green;
+    color: white;
+}
+.c-three button:active{
+    transform: scale(1.2,1.2);
+    background-color: black;
+    transition: 0.7s;
+}
+.c-three p{
+    /* margin: 0px 8px 0 8px; */
+    font-weight:400;
+    width:30%
+}
+.c-four{
+    width:10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    color:blue
+}
+.c-five{
+    width:15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.2rem;
+    font-family:"Baloo 2",sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+/* OFFERS */
+
+.checkout{
+    background-color: white;
+    position:fixed;
+    bottom:13%;
+    right:5%;
+    border:2px solid #333333;
+    display: flex;
+    color:#333333;
+}
+.l{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 15px;
+}
+.l h4{
+    font-size:1.3rem;
+}
+.r{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    background-color: green;
+    color:white;
+    padding: 8px;
+    cursor: pointer;
+    font-family: "Baloo 2";
+    font-size:20px;
+    cursor: pointer;
+}
+.m{
+    margin: 10px 0px 10px 10px;
+    display: flex;
+    padding:5px;
+}
+.m>button{
+        font-size: 0.7rem;
+        letter-spacing: 0.2px;
+        cursor: pointer;
+}
+
+@media screen and (max-width:800px){
+ .cart-container{
+ margin-bottom:40% ;   
+ padding-top: 5%;
+ }
+ .cart-items{
+     padding-top: 5px;
+     padding-bottom: 7px;
+     margin-bottom: 8px;
+ }
+
+ .c-one>i{
+    font-size: 0.5rem;
+ }
+ .c-two{
+     width:25%;
+ }
+ .c-two>h4{
+    font-size: 0.9em;
+ }
+ .c-two>p{
+     font-size: 0.7rem;
+ }
+.c-three>button{
+    font-size: 0.8rem;
+}
+
+.c-four{
+    font-size:1.4rem;
+}
+.c-five{
+    width:25%
+}
+
+.checkout{
+    display: flex;
+    justify-content: space-between;
+    bottom: 8%;
+    border-radius: 5px;
+    width:90%;
+    border: 0.5px solid red;
+    border-radius: unset;
+}
+.m{
+    padding: 2px 4px;
+    display: flex;
+    flex-direction: column;
+}
+.m input{
+    width:90%;
+}
+.m button{
+    width:70%;
+}
+.l h4{
+    font-size: 0.9rem;
+}
+
+}

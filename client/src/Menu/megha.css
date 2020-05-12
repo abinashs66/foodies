@@ -1,0 +1,96 @@
+.hotel-megha{
+    max-width: 1080px;
+    margin: auto;
+    margin-bottom: 7%;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+}
+.hotel-megha>div>h4{
+    font-size: 1.4rem;
+    margin: 1% 1% 1% 2%;
+    text-transform: uppercase;
+    /* text-shadow: 1px 1px 3px red; */
+    text-decoration: underline;
+    
+}
+.sidebyside{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu-toggle{
+    position: fixed;
+    bottom:12%;
+    right:5%;
+}
+.menu-toggle>button{
+        background-color: transparent;
+        font-size: 1.5rem;
+        border:2px solid #3f0d12;
+        color:3f0d12;
+        border-radius: 15px;
+        text-transform: capitalize;
+        outline: none;
+        cursor: pointer;
+}
+.menu-toggle>button:active{
+        background-image:linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+        color:white;
+}
+.menu-toggle>button>h4{
+    padding: 3px 7px;
+}
+.menu-list{
+    position: fixed;
+    bottom:18%;
+    right:2%;
+    background-image:linear-gradient(150deg, #3f0d12 0%, #a71d31 74%);
+    color:white;
+    padding:1% 2%;
+    border-radius: 8%;
+    text-transform: capitalize;
+    transform: scale(0,0); 
+    transition: transform 0.2s ease-in-out;
+}
+.menu-list.menu-visible{
+    transform: scale(1,1);
+}
+.menu-list>li{
+    cursor: pointer;
+}
+.menu-list>li:active{
+    transform:scale(1.1,1.1);
+}
+
+@media screen and (max-width:700px){
+    .hotel-megha{
+        margin-bottom: 30%;
+    }
+    .menu-toggle{
+        position: fixed;
+        top:87%;
+    }
+    .menu-toggle>button{
+        background-color:white;
+        border:2px solid;
+        color: darkslateblue;
+}
+    .menu-toggle>button>h4{
+        font-size: 1.2rem;
+    }
+    .menu-list{
+        max-height: 30%;
+        overflow: scroll;
+        padding: 3% 6%;
+        bottom:15%;
+        right:3%;
+        outline: none;
+        cursor: zoom-in;
+    }
+    .menu-list>li{
+        list-style-type:none;
+        font-size: 1.2rem;
+    }
+
+}

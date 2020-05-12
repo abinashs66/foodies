@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+input:disabled{
+    background-color: white;
+}
+.register-container{
+    background-image: url(../Images/backgroung.jpg);
+    background-repeat: round;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
+    padding-bottom: 30%;
+}
+
+.register-form{
+    max-width: 450px;
+    width:100%;
+    background-color: white;
+    margin: auto;
+    margin-bottom: 15%;
+    border-radius: 3%;  
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.register-form>h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 39px;
+    color: #333333;
+    line-height: 1.2;
+    margin-top:8%;
+    margin-bottom:10% ;
+}
+.register-form>div>label{
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    color:#333333;
+    line-height: 1.5;
+    padding-left: 8px;
+    text-shadow: 0 0 black;
+}
+.register-element{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color:#333333;
+    line-height: 1.2;
+    border-bottom: 2px solid grey;
+    width:380px;
+    margin-bottom: 18px;
+    padding:3px 
+}
+.register-element>i{
+        padding-left: 14px;
+        color: grey;
+        color:#1E90FF
+}
+.register-element>input{
+    border: none;
+    padding:9px 10px;
+    outline: none;
+    letter-spacing: 1.2px;
+}
+.verify-ph{
+    margin-left: 5px;
+    margin-bottom: 5px;
+    padding: 1px 12px;
+    font-size: 0.9rem;
+    font-family: "Baloo 2",sans-serif;
+    background-color: crimson;
+    color:white;
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    outline:white;
+}
+.verify-ph:active{
+    transform: scale(1.1,1.1);
+}
+.verify-ph:disabled{
+    background-color: rgba(0,0,0,0.5);
+}
+.register-button{
+    text-align: center;
+    margin-top:50px;
+}
+.register-button>button{
+    width:100%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    padding: 11px 0px 11px 0;
+    border-radius: 25px;
+    border: none;
+    background-image:linear-gradient(315deg, #00dbde 0%, #fc00ff 74%);
+    color:#fff;
+    outline: none;
+    cursor: pointer;
+}
+.register-button>button:active{
+    transform:scale(1.1,1.1);
+}
+.register-button>button:disabled{
+    cursor: not-allowed;
+}
+.sign-up{
+    margin-top: 30px;
+    padding-right: 14px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.sign-up span{
+    color:dodgerblue;
+    cursor: pointer;
+}
+.sign-up span:active{
+    color:black;
+}
+.modal-container{
+    position: fixed;
+    top:0;
+    right:0;
+    left:0;
+    bottom: 0;
+    background-color:rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+.modal-container.show-modal{
+    visibility: visible;
+    transition: visibility 0.5s ease-in;
+}
+.modal{
+   background-color: white;;
+   padding: 20px;
+   border-radius: 5px;
+   position: relative;
+}
+.modal>h3{
+    color: #333333;
+}
+.modal input{
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 1rem;
+    letter-spacing: 3px;
+
+}
+.modal button{
+    background-color: dodgerblue;
+    border: none;
+    padding: 7px;
+    color: white;
+    font-size: 1rem;
+    margin-top: 9px;
+    margin-left: 33%;
+    text-transform: uppercase;
+    outline: none;
+    letter-spacing: 1.2px;
+}
+.modal button:active{
+    transform: scale(0.9,0.9);
+}
+.modal div{
+    position: absolute;
+    right:7%;
+    top:7%;
+    font-size: 1.5rem;
+}
+.modal div:active{
+    color:crimson;
+}
+
+
+@media screen and (max-width:800px){
+    .register-form{
+            margin: 3% 3% 5% 3%;
+            overflow: hidden;
+        }
+    .register-form>h1{
+        margin-top:15%;
+    }
+        .register-element{
+            width:320px;
+    }
+    .register-button>button:disabled{
+        cursor: not-allowed;
+    }
+
+}
+
+
+
+
+
+
+
+

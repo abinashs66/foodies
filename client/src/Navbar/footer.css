@@ -1,0 +1,24 @@
+.footer-container{
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color:#3f0d12;
+    background-image:linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+    width:100%;
+    padding-top:1%;
+    border-radius: 4px;
+    box-shadow:  0 -2px 9px rgba(0,0,000.5);
+}
+
+.footer-item{
+    text-align: center;
+    color:white;
+    font-size: 1.7rem;
+    line-height: 1.1rem;
+}
+.footer-item>p{
+    font-size: 0.8rem;
+    font-family: 'Nunito',sans-serif;
+}

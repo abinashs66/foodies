@@ -1,0 +1,94 @@
+.address-container{
+    background-color: rgb(189, 228, 243);
+    max-width: 500px;
+    margin: auto;
+    padding-top: 15px;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 30%;
+
+}
+.top1{
+    background-color: white;
+}
+.top1>p{
+    text-transform:uppercase;
+    font-family: "Baloo 2",sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1.3px;
+    color: #333333;
+    padding:10px;
+}
+.middle2{
+    margin-top: 3%;
+}
+
+.address{
+    padding:3% 6%;
+    background-color: white;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+.address>h5{
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+.address>p{
+    font-size: 1rem;
+    padding-left: 5%;
+    padding-top: 2%;
+    text-transform: capitalize;
+    font-family: "Baloo 2",sans-serif;
+}
+.address>div{
+    width: 100%;
+    padding-right: 10px;;
+    text-align: right;
+
+}
+.address>div>button{
+    font-family: "Baloo 2",sans-serif;
+    background-color: crimson;
+    padding:2px 8px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+}
+.address>div>button:active{
+    transform: scale(0.9,0.9);
+}
+
+.bottom3{
+    margin-top: 6%;
+    width:100%;
+    text-align: center;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: bold;
+    color:white;
+    cursor: pointer;
+}
+
+.bottom3>p{
+    margin-left: 20%;
+    margin-right: 20%;
+    padding:5px;
+    background-color: crimson;
+}
+.bottom3:active{
+    transform: scale(0.9,0.9);
+
+}
+.hide{
+    transform: scale(0,0);
+    transition: transform 0.5s ease-out;
+}
+.show{
+    transform: scale(1,1);
+    transition: transform 0.5s ease-in;
+}

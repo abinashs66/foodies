@@ -1,0 +1,61 @@
+.add-address{
+    margin-top:4%;
+    background-color: white;
+    border-radius: 10px;
+}
+.radio-buttons{
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding:10px;
+    font-family: "Baloo 2",sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding-left: 15px;
+}
+.radio-buttons>input{
+     margin-left: 20px;
+     margin-right: 8px;
+}
+.complete-address{
+    width: 100%;
+    text-align: left;
+    padding-left: 10%;
+    display: flex;
+    padding-bottom: 4%;
+}
+.complete-address>textarea{
+    max-width: 70%;
+    width:70%;
+    padding: 5px 5px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-family:"Baloo 2",sans-serif;
+    color: #333333;
+}
+.complete-address>textarea:focus{
+        outline: none;
+        border :2px solid crimson;
+}
+.btn-cont{
+      padding-left: 5%;
+      padding-top: 2%;
+}
+.btn-cont>button{
+        padding:5px 12px;
+        background-color: crimson;
+        color:white;
+        cursor: pointer;
+        outline: none;
+        border: none;
+}
+.btn-cont>button:active{
+        transform: scale(1.1,1.1);
+}
+.btn-cont>button:disabled{
+    background-color: rgba(0,0,0,0.4);
+}
+.error{
+    text-align: center;
+    padding-bottom: 10px;
+    color:crimson
+}

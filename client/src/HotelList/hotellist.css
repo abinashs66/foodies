@@ -1,0 +1,11 @@
+.hotel-container{
+    max-width: 1080px;
+    margin: auto;
+    margin-bottom: 7%;
+}
+
+@media screen and (max-width:800px){
+    .hotel-container{
+        margin-bottom: 20%;
+    }
+}
