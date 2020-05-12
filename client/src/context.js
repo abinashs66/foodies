@@ -18,7 +18,7 @@ class ProductProvider extends Component {
             cart:[],
             cartTotal:0,
             search:[],
-            LoginStatus:false,
+            LoginStatus:true,
             userDetails:[],
             address:[]
         }
@@ -39,7 +39,9 @@ class ProductProvider extends Component {
     getUserDetails=async ()=>{
         const token=localStorage.getItem("token");
         if(!token){
-            this.setState({LoginStatus:false})
+            // this.setState({LoginStatus:false})
+            this.setState({LoginStatus:true})
+
         }
         else{
             let userdata= await axios.get("http://localhost:8080/userDetails",{headers:
