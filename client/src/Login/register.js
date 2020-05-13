@@ -6,6 +6,7 @@ import axios from 'axios';
 import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const API_KEY="ecdc820c-916d-11ea-9fa5-0200cd936042";
+const port=process.env.PORT || 8080;
 
 toast.configure();
 
@@ -145,7 +146,7 @@ export default class Register extends Component {
                 "phone_no":this.state.phone,
                 "email":this.state.email
         }
-        let result=await axios.post("http://localhost:8080/register",record);
+        let result=await axios.post(`http://localhost:${port}/register`,record);
         
         if(result.data.code==="ER_DUP_ENTRY" || result.data.errno===1062){
             let localCopy=this.state.formErrors;

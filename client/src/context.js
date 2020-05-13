@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const port=process.env.PORT || 8080;
 
 toast.configure();
 
@@ -44,7 +45,7 @@ class ProductProvider extends Component {
 
         }
         else{
-            let userdata= await axios.get("http://localhost:8080/userDetails",{headers:
+            let userdata= await axios.get(`http://localhost:${port}/userDetails`,{headers:
                                                                                 {
                                                                                     "token":token
                                                                                 }
@@ -57,7 +58,7 @@ class ProductProvider extends Component {
     getUserAddress= async ()=>{
         const token=localStorage.getItem("token");
         if(token){
-            const address=await axios.get("http://localhost:8080/userDetails/address",{ headers:
+            const address=await axios.get(`http://localhost:${port}/userDetails/address`,{ headers:
                                                                                         {
                                                                                             "token":token
                                                                                         }
@@ -70,9 +71,9 @@ class ProductProvider extends Component {
         }
     }
     getDataFromServer = async ()=>{
-        let megha= await axios.get("http://localhost:8080/getData",{params:{"menu":"menu_megha"}});
-        let geetanjali= await axios.get("http://localhost:8080/getData",{params:{"menu":"menu_geetanjali"}});
-        let greencastle= await axios.get("http://localhost:8080/getData",{params:{"menu":"menu_greencastle"}});
+        let megha= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_megha"}});
+        let geetanjali= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_geetanjali"}});
+        let greencastle= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_greencastle"}});
 
         console.log(greencastle.data);
         this.setState({
@@ -84,7 +85,7 @@ class ProductProvider extends Component {
     }
     login = async (e,uname,upass,rd)=>{
                 e.preventDefault();
-                await axios.post("http://localhost:8080/login",{"uname":uname,"upass":upass}).then((posRes)=>{
+                await axios.post(`http://localhost:${port}/login`,{"uname":uname,"upass":upass}).then((posRes)=>{
                         if(posRes.data!="TRY AGAIN")
                         {
                             localStorage.setItem("token",posRes.data.token);
@@ -112,7 +113,7 @@ class ProductProvider extends Component {
             if(window.confirm("Are You Sure ??")){
                 const token=localStorage.getItem("token");
 
-            let status=await axios.delete("http://localhost:8080/address/deleteAddress",{headers:
+            let status=await axios.delete(`http://localhost:${port}/address/deleteAddress`,{headers:
                                                                                                         {
                                                                                                             "token":token,
                                                                                                             "id":id
@@ -132,7 +133,7 @@ class ProductProvider extends Component {
        addAddress=async (addType,address)=>{
          const id=this.state.userDetails[0].id;
          const token=localStorage.getItem("token");
-         let status=await axios.post("http://localhost:8080/address/addAddress",
+         let status=await axios.post(`http://localhost:${port}/address/addAddress`,
                             {"addType":addType , "address":address , "id":id},
                             {headers:
                                     {
