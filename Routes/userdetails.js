@@ -5,11 +5,12 @@ let verify=require("../Middlewares/verify.js")
 
 
 let connection=mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"password",
-    database:"foodies"
+  host:"db4free.net",
+  user:"foodies12345",
+  password:"abinash12345",
+  database:"foodies"
 });
+
 
 router.get("/",verify,(req,res)=>{
       connection.query(`select id,cust_name,phone_no,email,username from users where username="${req.body.uname}" or phone_no="${req.body.uname}"`,

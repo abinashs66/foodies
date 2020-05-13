@@ -5,11 +5,12 @@ let deleteAddress=require("../Middlewares/deleteAddress.js");
 let addAddress=require("../Middlewares/addAddress.js")
 
 let connection=mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"password",
+    host:"db4free.net",
+    user:"foodies12345",
+    password:"abinash12345",
     database:"foodies"
 });
+
 
 router.delete("/deleteAddress",deleteAddress,(req,res)=>{
         connection.query(`delete from address where id=${req.body.id}`,

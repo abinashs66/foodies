@@ -6,11 +6,12 @@ let bcrypt=require("bcrypt");
 
 
 let connection=mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"password",
-    database:"foodies"
+  host:"db4free.net",
+  user:"foodies12345",
+  password:"abinash12345",
+  database:"foodies"
 });
+
 
 router.post("/",(req,res)=>{
     let uname=req.body.uname;

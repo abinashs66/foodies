@@ -4,11 +4,12 @@ let mysql=require("mysql");
 let verifyOrder=require("../Middlewares/verifyOrders");
 
 let connection=mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"password",
+    host:"db4free.net",
+    user:"foodies12345",
+    password:"abinash12345",
     database:"foodies"
 });
+
 
 router.post("/placeorder",verifyOrder,(req,res)=>{
     connection.query(`insert into orders(customer_name,user_order,price,address,order_time,order_date,phone_number,extra_number,user_id)

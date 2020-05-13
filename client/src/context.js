@@ -18,7 +18,7 @@ class ProductProvider extends Component {
             cart:[],
             cartTotal:0,
             search:[],
-            LoginStatus:true,
+            LoginStatus:false,
             userDetails:[],
             address:[]
         }
@@ -39,8 +39,8 @@ class ProductProvider extends Component {
     getUserDetails=async ()=>{
         const token=localStorage.getItem("token");
         if(!token){
-            // this.setState({LoginStatus:false})
-            this.setState({LoginStatus:true})
+            this.setState({LoginStatus:false})
+            // this.setState({LoginStatus:true})
 
         }
         else{

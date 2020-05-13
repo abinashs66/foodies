@@ -5,11 +5,12 @@ let bcrypt=require("bcrypt");
 const saltRounds=10;
 
 let connection=mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"password",
+    host:"db4free.net",
+    user:"foodies12345",
+    password:"abinash12345",
     database:"foodies"
 });
+
 
 router.post("/",(req,res)=>{
 
