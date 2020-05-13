@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const port=process.env.PORT;
+const port=process.env.PORT || 8080;
 
 toast.configure();
 
@@ -71,7 +71,7 @@ class ProductProvider extends Component {
         }
     }
     getDataFromServer = async ()=>{
-        let megha= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_megha"}});
+        let megha= await axios.get(`https://ffoodieess.herokuapp.com:${port}/getData`,{params:{"menu":"menu_megha"}});
         let geetanjali= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_geetanjali"}});
         let greencastle= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_greencastle"}});
 
@@ -85,7 +85,7 @@ class ProductProvider extends Component {
     }
     login = async (e,uname,upass,rd)=>{
                 e.preventDefault();
-                await axios.post(`http://localhost:${port}/login`,{"uname":uname,"upass":upass}).then((posRes)=>{
+                await axios.post(`https://ffoodieess.herokuapp.com:${port}/login`,{"uname":uname,"upass":upass}).then((posRes)=>{
                         if(posRes.data!="TRY AGAIN")
                         {
                             localStorage.setItem("token",posRes.data.token);
