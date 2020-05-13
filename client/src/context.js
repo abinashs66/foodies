@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const port=process.env.PORT || 8080;
+const port=process.env.PORT;
 
 toast.configure();
 

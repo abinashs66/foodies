@@ -6,7 +6,7 @@ import axios from 'axios';
 import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const API_KEY="ecdc820c-916d-11ea-9fa5-0200cd936042";
-const port=process.env.PORT || 8080;
+const port=process.env.PORT;
 
 toast.configure();
 
