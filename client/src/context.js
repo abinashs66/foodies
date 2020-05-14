@@ -71,14 +71,14 @@ class ProductProvider extends Component {
         }
     }
     getDataFromServer = async ()=>{
-        let megha= await axios.get(`/getData`,{params:{"menu":"menu_megha"}});
-        let geetanjali= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_geetanjali"}});
-        let greencastle= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_greencastle"}});
+        let megha= await axios.get(`https://ffoodieess.herokuapp.com/getData`,{params:{"menu":"menu_megha"}});
+        // let geetanjali= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_geetanjali"}});
+        // let greencastle= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_greencastle"}});
 
         this.setState({
             megha:megha.data,
-            geetanjali:geetanjali.data,
-            greencastle:greencastle.data,
+            // geetanjali:geetanjali.data,
+            // greencastle:greencastle.data,
             cart:[]
         });
     }
