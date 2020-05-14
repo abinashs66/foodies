@@ -19,7 +19,7 @@ class ProductProvider extends Component {
             cart:[],
             cartTotal:0,
             search:[],
-            LoginStatus:false,
+            LoginStatus:true,
             userDetails:[],
             address:[]
         }
@@ -40,8 +40,8 @@ class ProductProvider extends Component {
     getUserDetails=async ()=>{
         const token=localStorage.getItem("token");
         if(!token){
-            this.setState({LoginStatus:false})
-            // this.setState({LoginStatus:true})
+            //this.setState({LoginStatus:false})
+            this.setState({LoginStatus:true})
 
         }
         else{
@@ -71,11 +71,10 @@ class ProductProvider extends Component {
         }
     }
     getDataFromServer = async ()=>{
-        let megha= await axios.get(`https://ffoodieess.herokuapp.com:${port}/getData`,{params:{"menu":"menu_megha"}});
+        let megha= await axios.get(`/getData`,{params:{"menu":"menu_megha"}});
         let geetanjali= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_geetanjali"}});
         let greencastle= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_greencastle"}});
 
-        console.log(greencastle.data);
         this.setState({
             megha:megha.data,
             geetanjali:geetanjali.data,
