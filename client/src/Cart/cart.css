@@ -3,11 +3,12 @@
     margin: auto;
     margin-bottom: 14%;
     margin-top: 2%;
-    padding:1% 5% 1% 5%;
+    padding:1% 4% 1% 4%;
     padding-top:1%;
-    background-color:#fff5ee ;
+    background-color: white;
     max-height: 70%;
     position: relative;
+    color:#333333;
 }
 .cart-items{
     display:flex;
@@ -17,7 +18,7 @@
     padding: 2px 3px;
     width:100%;
     margin-bottom: 2px;
-    box-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     background-color: white;
 }
 .c-one{
@@ -58,9 +59,8 @@
     transition: 0.7s;
 }
 .c-three p{
-    /* margin: 0px 8px 0 8px; */
     font-weight:400;
-    width:30%
+    width:30%;
 }
 .c-four{
     width:10%;
@@ -79,6 +79,7 @@
     font-family:"Baloo 2",sans-serif;
     font-weight: 600;
     font-size: 1.2rem;
+    color:black
 }
 /* OFFERS */
 
@@ -107,7 +108,7 @@
     justify-content: center;
     align-items: center;
     margin: 10px;
-    background-color: green;
+    background-color: crimson;
     color:white;
     padding: 8px;
     cursor: pointer;
@@ -124,6 +125,21 @@
         font-size: 0.7rem;
         letter-spacing: 0.2px;
         cursor: pointer;
+}
+.retreive-cart{
+    position: fixed;
+    top:45%;
+    left:47%;
+    padding: 20px;
+    background-color: crimson;
+    color: white;
+    font-size: 1.5rem;
+    letter-spacing: 1.4px;
+}
+.retreive-cart:active{
+    border: none;
+    outline:none;
+    transform: scale(1.1,1.1);
 }
 
 @media screen and (max-width:800px){
@@ -182,6 +198,13 @@
 }
 .l h4{
     font-size: 0.9rem;
+}
+.retreive-cart{
+    top:40%;
+    left:32%;
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
 }
 
 }

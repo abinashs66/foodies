@@ -1,0 +1,18 @@
+.my-orders{
+    background-color: rgba(132, 189, 245, 0.719);
+    max-width: 500px;
+    margin: auto;
+    padding-top: 15px;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 25%;
+    text-transform: capitalize;
+    color:#333333;
+}
+.my-orders h3{
+    padding: 10px 10px;
+    letter-spacing: 1.2px;
+    background-color: crimson;
+    color: white;
+    margin-top: 5px;
+}

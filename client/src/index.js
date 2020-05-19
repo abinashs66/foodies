@@ -10,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
     <ProductProvider>
-    <App />
+       <App />
     </ProductProvider>
     </Router>
   </React.StrictMode>,

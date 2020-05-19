@@ -26,7 +26,6 @@ export default class AddAddress extends Component {
                              placeholder="Enter your Address here ...."
                              value={this.state.address}
                              maxLength="195"
-                             autoFocus
                              rows="5"
                              onChange={this.handleChange}
                              >                 

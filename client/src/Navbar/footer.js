@@ -5,26 +5,27 @@ import Navbar from './navbar';
 
 export default class Footer extends Component {
     render() {
-        console.log("Footer Render");
         return (
             <div className="footer-container">
-                <NavLink to="/home">
+                <NavLink activeClassName="active-style" to="/home">
                     <div className="footer-item">
                         <i className="fa fa-home" aria-hidden="true"></i>
                         <p>Home</p>
                     </div>
+                </NavLink >
+                <NavLink activeClassName="active-style"  to="/search">
+                    <div className="footer-item">
+                        <i className="fa fa-search" aria-hidden="true"></i>
+                        <p>Search</p>
+                    </div>
                 </NavLink>
-                <div className="footer-item">
-                    <i className="fa fa-search" aria-hidden="true"></i>
-                    <p>Search</p>
-                </div>
-                <NavLink to="/cart">
+                <NavLink activeClassName="active-style" to="/cart">
                     <div className="footer-item">
                         <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                         <p> Cart </p>
                     </div>
                 </NavLink>
-                <NavLink to="/account">
+                <NavLink activeClassName="active-style" to="/account">
                     <div className="footer-item">
                         <i className="fa fa-user" aria-hidden="true"></i>
                         <p>Profile</p>

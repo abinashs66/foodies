@@ -1,0 +1,67 @@
+
+.empty-cart{
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.5);
+    height: 100%;
+}
+.empty-image{
+    overflow: hidden;
+    padding-top: 40px;
+}
+.empty-image>img{
+    max-width: 100%;
+    height:200px;
+    width:220px;
+}
+.food-quote{
+    width: 100%;
+    padding: 0px 10px;
+}
+.food-quote h4{
+    text-transform:uppercase;
+    font-size: 1.3rem;
+    letter-spacing: 1.2px;
+    font-family: "Baloo 2",sans-serif;
+    background-color: crimson;
+    color: white;
+}
+.add-something{
+    margin-top: 15px;
+}
+.add-something p{
+    margin: 10px;
+    letter-spacing: 1.2px;
+    font-size: 0.9rem;
+    color:#333333;
+}
+.add-something p:first-child{
+    font-size: 1.2rem;
+}
+.browse-button{
+    margin-top: 40px;
+    padding-left: 65px;
+    padding-right: 65px;
+    padding-bottom: 80px;
+}
+.browse-button p{
+    text-transform: uppercase;
+    border: 2px solid crimson;
+    padding:7px;
+    font-weight: bolder;
+}
+.browse-button p:active{
+    transform: scale(0.9,0.9);
+    transition: 0.3s;
+}
+a{
+    color:crimson
+}
+
+
+@media screen and (max-width:800px){
+    .empty-cart{
+        margin-top: 10%;
+    }
+}

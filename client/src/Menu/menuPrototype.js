@@ -16,7 +16,7 @@ export default class menuPrototype extends Component {
                                 </div>
                                 <div className="p-middle">
                                     <h4>{item_name}</h4>
-                                    <p>{item_price}</p>
+                                    <p><i class="fa fa-inr" aria-hidden="true"></i>{item_price}</p>
                                 </div>
                                 <div className="p-right">
                                         <button className="btn"

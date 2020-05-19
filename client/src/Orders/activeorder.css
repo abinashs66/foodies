@@ -1,0 +1,52 @@
+.proto-container{
+    margin-top: 5px;
+    background-color: white;
+    padding:4px 20px;
+    width: 100%;
+    position: relative;
+    border-radius: 5px;
+}
+.total-amt{
+    position: absolute;
+    right:10px;
+    top:10px;
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: "Baloo 2";
+    font-size: 0.9rem;
+    letter-spacing: 1.2px;
+    color:#333333;
+}
+.items span{
+    font-size: 0.8rem;
+    color:black
+}
+
+.items .target-p{
+        font-size: 0.6rem;
+        font-family: "Baloo 2",sans-serif;
+        letter-spacing: 1.1px;
+        padding-left: 10px;
+        line-height:120%;
+}
+.addr>span{
+    font-size: 0.8rem;
+    color:black
+
+}
+.addr .target-p{
+    font-size: 0.7rem;
+    padding-left: 15px;
+    font-family: "Baloo 2",sans-serif;
+}
+.time-date>span{
+    font-size: 0.8rem;
+    color:black
+
+}
+.time-date .target-p{
+    font-size: 0.7rem;
+    padding-left: 20px;
+    font-family: "Baloo 2",sans-serif;
+}

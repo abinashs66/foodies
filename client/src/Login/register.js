@@ -6,7 +6,6 @@ import axios from 'axios';
 import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const API_KEY="ecdc820c-916d-11ea-9fa5-0200cd936042";
-const port=process.env.PORT;
 
 toast.configure();
 
@@ -93,7 +92,7 @@ export default class Register extends Component {
                                 </div>
                             </div>
                         </form>
-                        <div className="modal-container show">
+                        <div className="modal-container">
                                 <div className="modal">
                                         <h3>Enter OTP</h3>
                                         <input type="text" name="otp" value={this.state.otp} onChange={this.handleChange}></input><br></br>
@@ -120,7 +119,7 @@ export default class Register extends Component {
             this.setState({sessionid:result.data.Details})
         }
         else{
-            toast("Sorry .. Unable to Verify .TRY AGAIN");
+            toast.error("Sorry .. Unable to Verify .TRY AGAIN");
         }
     }
     otpValidation =async (event)=>{
@@ -134,7 +133,7 @@ export default class Register extends Component {
                 this.finalFunc();
             }
             else{
-                toast("Wrong OTP");
+                toast.error("Wrong OTP");
             }
     }
     register =async (event)=>{
@@ -146,7 +145,7 @@ export default class Register extends Component {
                 "phone_no":this.state.phone,
                 "email":this.state.email
         }
-        let result=await axios.post(`http://localhost:${port}/register`,record);
+        let result=await axios.post("https://ffoodieess.herokuapp.com/register",record);
         
         if(result.data.code==="ER_DUP_ENTRY" || result.data.errno===1062){
             let localCopy=this.state.formErrors;
@@ -156,11 +155,11 @@ export default class Register extends Component {
             })
         }
          if(result.data.affectedRows>0){
-            toast("Welcome To Foodies !! Please Login");
+            toast.success("Welcome To Foodies !! Please Login");
              this.props.history.push("/");
          }
          else{
-             toast("Registration Unsuccessfull ");
+             toast.error("Registration Unsuccessfull ");
          }
 
     }
@@ -170,7 +169,6 @@ export default class Register extends Component {
     handleChange = (e)=>{
         let value=e.target.value;
         let name=e.target.name;
-        console.log(value,name);
         this.setState({
                 [name]:value
         },()=>{this.validate(name,value)})

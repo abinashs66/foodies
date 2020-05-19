@@ -16,31 +16,40 @@
     border-radius: 4px;
     box-shadow: 0 2px 12px rgba(0,0,000.5);
 }
+.title{
+    font-family: "Showcard Gothic",sans-serif;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    padding-left:10px;
+    letter-spacing: 2.5px;
+}
+.title span{
+    font-family: "Showcard Gothic",sans-serif;
+    padding-left: 8px;
+    font-size: 1.6rem;
+}
 .hamburger{
     z-index: 510;
+    cursor: pointer;
 }
 .slider{
-    background-color:#3f0d12;
-    background-image:linear-gradient(180deg, #53181e 0%, #be1d35 100%);
+    background-color: white;
     position: fixed;
     top:0;
     right:0;
     height:100vh;
     width:25%;
     transform: translateX(125%);
-    transition: transform 0.4s ease-in;
+    transition: transform 0.3s ease-in;
     z-index: 500;
-    color:white;
+    color:black;
     padding:1% 3%;
-    background-color: white;
     overflow: auto;
 }
 .slider.visible{
     transform: translateX(0%);
     box-shadow: -10px -5px 10px rgba(0,0,0,0.5);
-}
-.slider>h1{
-    font-family: "Nunito",sans-serif;
 }
 .slider>div{
     width:100%;
@@ -50,22 +59,22 @@
   display:flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-top: 10%;
+  margin-top: 15%;
 }
 .slider ul li{
     list-style-type: none;
-    border-bottom:3px solid seashell ;
+    border-bottom:1px solid black ;
     border-radius: 10px;
     padding:3% 0% 2% 5%;
     margin-top:2%;
     text-transform: capitalize;
     font-family: "Baloo 2",sans-serif;
     font-size: 1.3rem;
-    color:white ;
+    color:black ;
     
 }
 .slider ul li a{
-    color:white;
+    color:black;
 }
 .slider span{
     padding-left: 10px;
@@ -83,34 +92,41 @@
     font-family: "Baloo 2";
     font-weight: 600;
     text-transform:capitalize;
-    background-color: blanchedalmond;
-    color:black;
+    background-color: crimson;
+    color:white;
     outline: none;
+    cursor: pointer;
 }
 .logout-btn:hover{
-    background-color: purple;
+    background-color: dodgerblue;
     color:white;
     transition: 0.5s;;
 }
 
 .logout-btn:active{
-    background-color:black;
-    color: wheat;
-    transition: 0.5s;
+    transform: scale(0.9,0.9);
+    transition: 0.2s;
 }
 
 .social-media{
-    margin-top: 10%;
+    margin-top: 15%;
     display: flex;
     justify-content:space-evenly;
     padding: 0px;
-    font-size: 1.2rem;
-
+    font-size: 1.4rem;
+    cursor: pointer;
 }
 @media screen and (max-width:800px)
 {
     .slider
     {
         width:70%;
+    }
+    .slider.visible{
+        box-shadow: -150px -5px 12px rgba(0,0,0,0.8);
+
+    }
+    .hamburger{
+        cursor: none;
     }
 }

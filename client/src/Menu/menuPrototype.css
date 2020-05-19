@@ -29,6 +29,7 @@
 }
 .p-middle>p{
     font-size: 0.7rem;
+    letter-spacing: 2px;
 }
 .p-right{
     width:35%;

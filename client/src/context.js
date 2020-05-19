@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from "axios";
 import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const port=process.env.PORT || 8080;
 
 toast.configure();
 
@@ -10,26 +9,98 @@ const ProductContext = React.createContext();
 
 class ProductProvider extends Component {
     constructor()
-    {  
+    {          
         super();
         this.state={
+            hotels:[],
             megha:[],
             greencastle:[],
             geetanjali:[],
             cart:[],
             cartTotal:0,
             search:[],
-            LoginStatus:true,
+            LoginStatus:false,
             userDetails:[],
-            address:[]
+            address:[],
+            search:[],
+
+            MenuLoadingStatus:true,
+            HotelsLoadingStatus:true
         }
     }
     componentDidMount(){
         this.checkLoginStatus();
+        this.getHotelsData();
         this.getDataFromServer();
         this.getUserDetails();
-        this.getUserAddress();
+        this.getUserAddress();     
     }
+
+    getHotelsData= async ()=>{
+        try{
+            let result=await axios.get(`https://ffoodieess.herokuapp.com/getHotels`);
+            
+            if(result.data === "CANNOT CONNECT TO DATABASE")
+            {
+                toast.error("Server Unreachable");
+                this.setState({HotelsLoadingStatus:false});
+            }
+            else{
+                this.setState({hotels:result.data},
+                    ()=>{
+                        this.setState({HotelsLoadingStatus:false})
+                    });
+            }
+            }
+                catch(e){
+                     toast.error("Network Error");
+                    }
+    }
+    retreiveCart =(rd)=>{
+        let storedcart=JSON.parse(localStorage.getItem("cart"));
+        
+        if(storedcart)
+        {
+            this.setState({cart:storedcart},()=>{this.addTotals()});
+
+            let tempmenu=[...this.state.megha,...this.state.geetanjali,...this.state.greencastle]
+    
+            storedcart.map(cartitem=>{
+                tempmenu.map(allmenu=>{
+                    if(allmenu.id===cartitem.id){
+                        allmenu.incart=true;
+                        allmenu.item_count=1;
+                        allmenu.item_total=allmenu.item_count*allmenu.item_price;
+                    }
+                })
+            })
+    
+        }
+        else{
+            rd.push("/cart");
+        }
+    }
+
+    setSearch = (event)=>{
+        let data=event.target.value.toLowerCase();
+
+        if(data==""){
+                this.setState({
+                    search:[]
+                })
+        }
+        else{
+            let temp1=[...this.state.megha,...this.state.geetanjali,...this.state.greencastle]
+            let searchedItems=temp1.filter(item=>item.item_name.includes(data));
+
+            this.setState({
+            search:searchedItems
+            });
+         }
+    }
+    
+
+
     checkLoginStatus =()=>{
         const token=localStorage.getItem("token");
         if(token)
@@ -40,25 +111,22 @@ class ProductProvider extends Component {
     getUserDetails=async ()=>{
         const token=localStorage.getItem("token");
         if(!token){
-            //this.setState({LoginStatus:false})
-            this.setState({LoginStatus:true})
-
+            this.setState({LoginStatus:false})
         }
         else{
-            let userdata= await axios.get(`http://localhost:${port}/userDetails`,{headers:
+            let userdata= await axios.get("https://ffoodieess.herokuapp.com/userDetails",{headers:
                                                                                 {
                                                                                     "token":token
                                                                                 }
                                                                                });
-            console.log(userdata);
-            this.setState({userDetails:userdata.data},()=>{console.log(this.state.userDetails)})
+            this.setState({userDetails:userdata.data});
         }
 
     }
     getUserAddress= async ()=>{
         const token=localStorage.getItem("token");
         if(token){
-            const address=await axios.get(`http://localhost:${port}/userDetails/address`,{ headers:
+            const address=await axios.get("https://ffoodieess.herokuapp.com/userDetails/address",{ headers:
                                                                                         {
                                                                                             "token":token
                                                                                         }
@@ -71,20 +139,20 @@ class ProductProvider extends Component {
         }
     }
     getDataFromServer = async ()=>{
-        let megha= await axios.get(`https://ffoodieess.herokuapp.com/getData`,{params:{"menu":"menu_megha"}});
-        // let geetanjali= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_geetanjali"}});
-        // let greencastle= await axios.get(`http://localhost:${port}/getData`,{params:{"menu":"menu_greencastle"}});
+        let megha= await axios.get("https://ffoodieess.herokuapp.com/getData",{params:{"menu":"menu_megha"}});
+        //let geetanjali= await axios.get("https://ffoodieess.herokuapp.com/getData",{params:{"menu":"menu_geetanjali"}});
+        //let greencastle= await axios.get("https://ffoodieess.herokuapp.com/getData",{params:{"menu":"menu_greencastle"}});
 
         this.setState({
             megha:megha.data,
-            // geetanjali:geetanjali.data,
-            // greencastle:greencastle.data,
+            //geetanjali:geetanjali.data,
+            //greencastle:greencastle.data,
             cart:[]
-        });
+        },()=>{this.setState({MenuLoadingStatus:false});console.log(this.state.geetanjali)});
     }
     login = async (e,uname,upass,rd)=>{
                 e.preventDefault();
-                await axios.post(`https://ffoodieess.herokuapp.com:${port}/login`,{"uname":uname,"upass":upass}).then((posRes)=>{
+                await axios.post("https://ffoodieess.herokuapp.com/login",{"uname":uname,"upass":upass}).then((posRes)=>{
                         if(posRes.data!="TRY AGAIN")
                         {
                             localStorage.setItem("token",posRes.data.token);
@@ -96,58 +164,70 @@ class ProductProvider extends Component {
 
                         }
                         else{
-                            toast("Username or Password is Wrong")
+                            toast.warn("Username or Password is Wrong")
                         }
                         },(errRes)=>{
-                                 toast("Sorry for the Inconveience");
+                                 toast.error("Unable to Connect..Try Again Later");
                          });
        }
 
        logout=()=>{
            localStorage.clear();
-            window.history.go("/");
+           window.history.go("/");
        }
 
        deleteAddress =async (id)=>{
-            if(window.confirm("Are You Sure ??")){
+            if(window.confirm("Are You Sure ??"))
+            {
                 const token=localStorage.getItem("token");
+                try{
+                    let status=await axios.delete("https://ffoodieess.herokuapp.com/address/deleteAddress",{headers:
+                    {
+                        "token":token,
+                        "id":id
 
-            let status=await axios.delete(`http://localhost:${port}/address/deleteAddress`,{headers:
-                                                                                                        {
-                                                                                                            "token":token,
-                                                                                                            "id":id
+                    }
+                    });
+                            if(status.data.affectedRows>0){
+                            toast("Address Deleted !!");
+                            this.getUserAddress();
 
-                                                                                                        }
-                                                                                        });
-            if(status.data.affectedRows>0){
-                toast("Address Deleted !!");
-                this.getUserAddress();
-
-            }
-            else{
-                toast("Cannot Delete Address");
-            }
+                            }
+                            else{
+                            toast.sucess.error("Cannot Delete Address");
+                     }
+                  }
+                  catch(e){
+                     toast.error("Network Error")
+                  }
             }
        }
        addAddress=async (addType,address)=>{
          const id=this.state.userDetails[0].id;
          const token=localStorage.getItem("token");
-         let status=await axios.post(`http://localhost:${port}/address/addAddress`,
-                            {"addType":addType , "address":address , "id":id},
-                            {headers:
-                                    {
-                                        "token":token
-                                    }
-                             }
-                                    );
-                    if(status.data.affectedRows>0){
-                        toast("Address Added !!");
-                        this.getUserAddress();
-                        
+
+            try{
+                let status=await axios.post("https://ffoodieess.herokuapp.com/address/addAddress",
+                {"addType":addType , "address":address , "id":id},
+                {headers:
+                        {
+                            "token":token
                         }
-                         else{
-                              toast("Cannot Add Address");
+                 }
+                        );
+                if(status.data.affectedRows>0){
+                toast.sucess("Address Added !!");
+                this.getUserAddress();
+            
+                 }
+                    else{
+                    toast.info("Cannot Add Address");
                     }                     
+
+            }
+            catch(e){
+                    toast.error("Network Error !!!");
+            }
               
           }
         addToCart =(id,hotel_id)=>{
@@ -199,9 +279,7 @@ class ProductProvider extends Component {
             foundItem.item_count+=1;
             foundItem.item_total=foundItem.item_count*foundItem.item_price;
     
-            this.setState({cart:tempCart},()=>{this.addTotals()})
-    
-                    
+            this.setState({cart:tempCart},()=>{this.addTotals()})            
           }
           decrement = (id)=>{
             let tempCart=[...this.state.cart] ;
@@ -216,6 +294,10 @@ class ProductProvider extends Component {
             }
 
           }
+          clearCart =()=>{
+            this.setState({cart:[],cartTotal:0},()=>{
+                this.getDataFromServer();this.addTotals()})
+            }
           removeItem =(id,hotel_id)=>{
             let tempCart=[...this.state.cart];
             let fliteredArray=tempCart.filter((item)=>item.id!=id);
@@ -261,19 +343,28 @@ class ProductProvider extends Component {
             this.state.cart.map((element)=>{
                 total=total+element.item_total;
             })
-            this.setState({cartTotal:total})    
+            this.setState({cartTotal:total},
+                ()=>{
+                    if(this.state.cartTotal===0)
+                    {localStorage.removeItem("cart")}
+                })  
+
+            localStorage.setItem("cart",JSON.stringify(this.state.cart));
           }
        submitOrder = async (address,phone,rd)=>{
             if(address==="")
             {
-                toast("Please Select an Address");
+                toast.warn("Please Select an Address");
                 rd.push("/placeorder");
             }
-            else{
+            else{   
+                    this.setState(()=>{
+                        return {OrderPlacedStatus:true}
+                    });
                     let orderText="";
                     let tempCart=[...this.state.cart];
                     tempCart.map(el=>{
-                        orderText=orderText+`${el.hotel_name}::${el.item_name}*${el.item_count}::${el.item_total}<<-->>`;
+                        orderText=orderText+`${el.hotel_name}--${el.item_name} x ${el.item_count} = ${el.item_total}<<-->>`;
                     })
                         let record={
                                     customer_name:this.state.userDetails[0].cust_name,
@@ -286,22 +377,28 @@ class ProductProvider extends Component {
 
                         }
                 const token=localStorage.getItem("token");
-                let status=await axios.post("http://localhost:8080/orders/placeorder",
-                                   record,
-                                   {headers:
-                                           {
-                                               "token":token
-                                           }
+                        try{
+                            let status=await axios.post("https://ffoodieess.herokuapp.com/orders/placeorder",
+                            record,
+                            {headers:
+                                    {
+                                        "token":token
                                     }
-                                           );
-                           if(status.data.affectedRows>0){
-                               toast("Order Placed");
-                               rd.push("/home");
-                               
-                               }
-                                else{
-                                     toast("Cannot Place Order");
-                           }                     
+                            }
+                                    )
+                                    if(status.data.affectedRows>0){
+                                        this.setState({OrderPlacedStatus:true})
+                                        toast.sucess("Order Placed");
+                                        this.clearCart();
+                                        rd.push("/orders");
+                                        }
+                                    else{
+                                              toast("Cannot Place Order");
+                                         }                     
+                            }
+                        catch(e){
+                            toast("Network Error !!!")
+                        }
                
             }
        }
@@ -319,8 +416,9 @@ render() {
             decrement:this.decrement,
             removeItem:this.removeItem,
             submitOrder:this.submitOrder,
-            // clearCart:this.clearCart,
-            // setSearch:this.setSearch
+            setSearch:this.setSearch,
+            retreiveCart:this.retreiveCart,
+            getHotelsData:this.getHotelsData
         }}>
             {this.props.children}
         </ProductContext.Provider>

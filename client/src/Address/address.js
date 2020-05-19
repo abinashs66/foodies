@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "./address.css";
 import { ProductConsumer } from '../context';
 import AddAddress from "./addaddress";
+import { Redirect } from 'react-router-dom';
 
 export default class Address extends Component {
     render() {
@@ -9,6 +10,9 @@ export default class Address extends Component {
             <ProductConsumer>
                 {
                     (value)=>{
+                        if(value.LoginStatus===false){
+                            return <Redirect to="/"></Redirect>
+                        }
                         return(
                         <div className="address-container">
                                 <div className="top1">
@@ -39,7 +43,7 @@ export default class Address extends Component {
         )
     }
 
-    showhide =()=>{
+    showhide =(e)=>{
         let item=document.querySelector(".hide");
         item.classList.toggle("show");
 

@@ -2,22 +2,30 @@ import React, { Component } from 'react';
 import MenuPrototype from "./menuPrototype";
 import {ProductConsumer} from "../context";
 import {Link} from "react-scroll";
-import "./megha.css"
+import {BounceLoader} from "react-spinners";
+import {Redirect} from "react-router-dom";
+import "./megha.css";
+
 
 export default class Megha extends Component {
     render() {
-        console.log("megha hotel render");
         return (
             <div className="hotel-megha">
-
-                <div><h4>hotel megha</h4></div>
-                
+                <div><h4>hotel megha</h4></div>                
                 <div>
                     <ProductConsumer>
                     {   
                         (value)=>(
-                                <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Biriyani</p>
+                                <div className="sidebyside"> 
+                                    <div className="spinner" style={value.MenuLoadingStatus?{display:"fixed"}:{display:"none"}}>
+                                            <BounceLoader loading={value.MenuLoadingStatus}
+                                                             size={100}
+                                                                 color={"#11baf7"}/>
+                                     </div>
+                                     {
+                                        (value.LoginStatus == false)?<Redirect to="/home"></Redirect>:<span></span>  
+                                     }
+                                    <p className="sub-heading" style={{width:"100%"}}>Biriyani</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="biriyani"){
@@ -33,7 +41,7 @@ export default class Megha extends Component {
                      {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Thali</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Thali</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="thali"){

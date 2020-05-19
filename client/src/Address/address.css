@@ -71,7 +71,7 @@
     letter-spacing: 1.3px;
     font-weight: bold;
     color:white;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .bottom3>p{
@@ -91,4 +91,10 @@
 .show{
     transform: scale(1,1);
     transition: transform 0.5s ease-in;
+}
+
+@media screen and (max-width:800px){
+    .bottom3{
+        cursor: none;
+    }
 }

@@ -13,7 +13,6 @@ export default class Account extends Component {
                     (value)=>{
 
                         if(value.userDetails==null){
-                            console.log("working")
                             return <Redirect to="/home"></Redirect> //error page
                         }
                         let phone_no,cust_name,email,username;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import  "./login.css";
 import { ProductConsumer } from '../context';
-import {Redirect} from "react-router-dom";
+import {Redirect,NavLink} from "react-router-dom";
 
 export default class Login extends Component {
     constructor(){
@@ -33,7 +33,7 @@ export default class Login extends Component {
                                     <i class="fa fa-lock"></i>                       
                                     <input type="password" placeholder="Enter Password" name="upass" value={this.state.upass} onChange={this.handleChange} required/>
                                 </div>
-                                <div className="forgot-pass"><p>Forgot Password ?</p></div>
+                                <div className="forgot-pass"><NavLink to="/forgotpassword"><p>Forgot Password ?</p></NavLink></div>
                                 <div className="login-button">
                                     <button disabled={this.state.uname==""||this.state.upass==""?true:false}
                                             onClick={(e)=>{value.login(e,this.state.uname,this.state.upass,this.props.history)}}

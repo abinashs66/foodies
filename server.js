@@ -41,6 +41,17 @@ app.get("/getData",(req,res)=>{
                                             }
                                         })
 })
+app.get("/getHotels",(req,res)=>{
+    connection.query(`select * from hotels`,
+    (err,records,feilds)=>{
+        if (err){
+          res.send("CANNOT CONNECT TO DATABASE");
+        }
+        else{
+            res.send(records)
+        }
+    })
+})
 
 
 

@@ -1,0 +1,50 @@
+.pre-loader{
+    max-width:500px;
+    margin: auto;
+    height: 62vh;
+    padding-top: 17%;
+    /* background-image: linear-gradient(#b91374,#6b0f1a); */
+    background-image: linear-gradient(#b91374,#b40e21);
+    border-radius: 80px;
+    overflow: hidden;
+}
+.app-logo{
+    width:100%;
+    overflow: hidden;
+    animation:App-logo-move infinite 2.5s;
+}
+.app-logo img{
+    max-width: 100%;
+    width:60px;
+    padding: 0px;
+    margin: 0px;
+}
+.app-heading{
+    width:100%;
+    text-align: center;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    font-family: "Showcard Gothic",sans-serif;
+    color: #ffc;
+}
+.app-heading h1{
+    margin: 0px;
+    padding:0px;
+}
+@media screen and (max-width: 800px){
+        .pre-loader{
+            padding-top: 65%;
+            height: 65vh;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+}
+@keyframes App-logo-move {
+    from{
+        transform: translateX(10%);
+    }
+    to{
+        transform: translateX(80%);
+    }
+}
