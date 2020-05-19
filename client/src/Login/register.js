@@ -112,7 +112,7 @@ export default class Register extends Component {
     phoneVerify = async (event)=>{
         event.preventDefault();
 
-        let result=await axios.get(`http://2factor.in/API/V1/${API_KEY}/SMS/${this.state.phone}/AUTOGEN/send_otp`);
+        let result=await axios.get(`https://2factor.in/API/V1/${API_KEY}/SMS/${this.state.phone}/AUTOGEN/send_otp`);
 
         if(result.data.Status==="Success"){
             document.querySelector(".modal-container").classList.add("show-modal");
@@ -124,7 +124,7 @@ export default class Register extends Component {
     }
     otpValidation =async (event)=>{
             event.preventDefault();
-            let result=await axios.post(`http://2factor.in/API/V1/${API_KEY}/SMS/VERIFY/${this.state.sessionid}/${this.state.otp}`);
+            let result=await axios.post(`https://2factor.in/API/V1/${API_KEY}/SMS/VERIFY/${this.state.sessionid}/${this.state.otp}`);
 
             if(result.data.Status === "Success"){
                 this.setState({otpVerified:true});
