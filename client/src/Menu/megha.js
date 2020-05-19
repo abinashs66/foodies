@@ -58,7 +58,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Soup & Snacks</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Soup & Snacks</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="soupandsnacks"){
@@ -75,7 +75,7 @@ export default class Megha extends Component {
                         {
                            (value)=>(
                             <div className="sidebyside">
-                                <p style={{width:"100%"}}>Salad</p>
+                                <p className="sub-heading" style={{width:"100%"}}>Salad</p>
                                 {
                                         value.megha.map((element)=>{
                                         if(element.item_subtype=="salad"){
@@ -92,7 +92,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Fast Food</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Fast Food</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="fastfood"){
@@ -109,7 +109,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div id="rnp" className="sidebyside">
-                                    <p style={{width:"100%"}}>Roti , Naan & Paratha</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Roti , Naan & Paratha</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="rotinaanparatha"){
@@ -126,7 +126,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Paneer</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Paneer</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="paneer"){
@@ -143,7 +143,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Mushroom</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Mushroom</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="mushroom"){
@@ -160,7 +160,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Rice</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Rice</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="rice"){
@@ -177,7 +177,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Dal</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Dal</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="dal"){
@@ -194,7 +194,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Veg</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Veg</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="veg"){
@@ -211,7 +211,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Egg</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Egg</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="egg"){
@@ -228,7 +228,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Fish</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Fish</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="fish"){
@@ -245,7 +245,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Chicken</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Chicken</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="chicken"){
@@ -262,7 +262,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Mutton</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Mutton</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="mutton"){
@@ -279,7 +279,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Tandoor</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Tandoor</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="tandoor"){
@@ -296,7 +296,7 @@ export default class Megha extends Component {
                         {
                             (value)=>(
                                 <div className="sidebyside">
-                                    <p style={{width:"100%"}}>Sweets</p>
+                                    <p className="sub-heading" style={{width:"100%"}}>Sweets</p>
                                     {
                                             value.megha.map((element)=>{
                                             if(element.item_subtype=="sweets"){

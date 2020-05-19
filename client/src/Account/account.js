@@ -48,7 +48,7 @@ export default class Account extends Component {
                                 <fieldset>
                                     <legend>Password</legend>
                                         <div>**************************</div>
-                                        <div className="password"><p>Change</p></div>
+                                        <div className="password"><p onClick={this.route}>Change</p></div>
                                 </fieldset>
                                 <fieldset>
                                     <legend>Phone</legend>
@@ -70,4 +70,8 @@ export default class Account extends Component {
             </ProductConsumer>
         )
     }
+    route = ()=>{
+        this.props.history.push("/changepassword");
+    }
+
 }

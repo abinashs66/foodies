@@ -17,17 +17,20 @@
     box-shadow: 0 2px 12px rgba(0,0,000.5);
 }
 .title{
-    font-family: "Showcard Gothic",sans-serif;
-    font-size: 1.2rem;
+    font-family: "Wendy One",sans-serif;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     padding-left:10px;
     letter-spacing: 2.5px;
+    color: floralwhite;
+    text-shadow: 4px 4px 0 black;
+
 }
 .title span{
-    font-family: "Showcard Gothic",sans-serif;
+    font-family: "Wendy One",sans-serif;
     padding-left: 8px;
-    font-size: 1.6rem;
+    font-size: 1.9rem;
 }
 .hamburger{
     z-index: 510;

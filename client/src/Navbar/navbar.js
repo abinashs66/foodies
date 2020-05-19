@@ -20,7 +20,7 @@ export default class Navbar extends React.Component {
                         <li> <NavLink to="/home" className="custom-navlink"> <i style={{color:"#e71c23"}} className="fa fa-home" aria-hidden="true"></i><span>home</span>   </NavLink>       </li>
                         <li> <NavLink to="/address" className="custom-navlink"> <i style={{color:"dodgerblue"}} className="fa fa-map-marker" aria-hidden="true"></i><span>delivery address</span>  </NavLink></li>
                         <li><i style={{color:"#6ab04a"}} className="fa fa-percent" aria-hidden="true"></i><span>offers</span></li>
-                        <li> <NavLink to="/orders" className="custom-navlink"> <i style={{color:"#0a79df"}} className="fa fa-cutlery" aria-hidden="true"></i><span>my orders</span> </NavLink></li>
+                        <li> <NavLink to="/home" className="custom-navlink"> <i style={{color:"#0a79df"}} className="fa fa-cutlery" aria-hidden="true"></i><span>my orders</span> </NavLink></li>
                         <li> <NavLink to="/account" className="custom-navlink"><i style={{color:"#e71c23"}} className="fa fa-user-circle-o" aria-hidden="true"></i><span>my account</span> </NavLink> </li>
                         <li> <i style={{color:"dodgerblue"}} className="fa fa-phone" aria-hidden="true"></i><span>talk to us</span></li>
                         <li><i style={{color:"#6ab04a"}} className="fa fa-thumbs-up" aria-hidden="true"></i><span>send feedback</span></li>

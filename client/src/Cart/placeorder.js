@@ -39,7 +39,7 @@ export default class PlaceOrder extends Component {
                                     })
                                 }
                             <div className="add">
-                                <span>+ Add New Address</span>
+                                <span onClick={this.route}>+ Add New Address</span>
                             </div>
                         </div>
                         <h3>Contact No. for Delivery</h3>
@@ -88,5 +88,8 @@ export default class PlaceOrder extends Component {
         let name=e.target.name;
         let value=e.target.value;
         this.setState({[name]:value},()=>{console.log(this.state.phone_no)});
+    }
+    route=()=>{
+        this.props.history.push("/address")
     }
 }

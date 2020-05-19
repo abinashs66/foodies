@@ -189,12 +189,12 @@ class ProductProvider extends Component {
                     }
                     });
                             if(status.data.affectedRows>0){
-                            toast("Address Deleted !!");
+                            toast.success("Address Deleted !!");
                             this.getUserAddress();
 
                             }
                             else{
-                            toast.sucess.error("Cannot Delete Address");
+                            toast.error("Cannot Delete Address");
                      }
                   }
                   catch(e){
@@ -216,7 +216,7 @@ class ProductProvider extends Component {
                  }
                         );
                 if(status.data.affectedRows>0){
-                toast.sucess("Address Added !!");
+                toast.success("Address Added !!");
                 this.getUserAddress();
             
                  }
@@ -388,16 +388,16 @@ class ProductProvider extends Component {
                                     )
                                     if(status.data.affectedRows>0){
                                         this.setState({OrderPlacedStatus:true})
-                                        toast.sucess("Order Placed");
+                                        toast.success("Order Placed");
                                         this.clearCart();
                                         rd.push("/orders");
                                         }
                                     else{
-                                              toast("Cannot Place Order");
+                                              toast.error("Cannot Place Order");
                                          }                     
                             }
                         catch(e){
-                            toast("Network Error !!!")
+                            toast.error("Network Error !!!")
                         }
                
             }
